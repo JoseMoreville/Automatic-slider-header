@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/static/index.js"></script>
+    <style>
+      :root {
+        --color-1000: #000;
+        --color-900: #1a1a1a;
+        --color-800: #333;
+        --color-700: #5a5a5a;
+        --color-500: #989898;
+        --color-300: #cacaca;
+        --color-100: #f4f4f4;
+        --color-000: #fff;
+        --color-chapterSelectBG: #f4f4f4;
+        --color-series: #1a1a1a;
+        --color-image-fade: hsla(0, 0%, 100%, 0);
+      }
+      @keyframes sliding {
+        0% {
+          left: 0%;
+        }
+        20% {
+          left: -100%;
+        }
+        40% {
+          left: -200%;
+        }
+        60% {
+          left: -300%;
+        }
+        80% {
+          left: -400%;
+        }
+        100% {
+          left: 0%;
+        }
+      }
+
+      @keyframes indicating {
+        from {
+          left: -100%;
+        }
+        to {
+          left: 0;
+        }
+      }
+      .auto-slider {
+        position: relative;
+        display: block;
+        background: white;
+        margin: 0 auto;
+        overflow: hidden;
+        width: 80%;
+        height: 30em;
+      }
+      .indicator {
+        width: 100%;
+        max-width: 720px;
+        height: 6px;
+        background: #c4c4c4;
+        position: absolute;
+        bottom: 0;
+        animation: indicating 4s ease infinite;
+      }
+      .slider {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .manga_title {
+        color: #ce5754;
+        font-size: 2em;
+        line-height: 2em;
+        font-weight: 700;
+      }
+      .manga_image {
+        height: 30em;
+        aspect-ratio: initial;
+        position: relative;
+        /* left: 6%; */
+        bottom: 0.6em;
+      }
+      .tags_container {
+        display: -webkit-flex;
+        display: -moz-box;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+      }
+      .tag {
+        font-size: 1.0rem;
+        line-height: 1.5rem;
+        font-weight: 400;
+        margin: 0 1rem 0.8rem 0;
+        padding: 0.2rem 1rem;
+        color: var(--color-000);
+        background: var(--color-500);
+        border-radius: 0.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auto-slider">
+      <div class="container" id="container">
+        <div id="manga_information"></div>
+      </div>
+      <div class="indicator"></div>
+    </div>
+  </body>
+</html>
